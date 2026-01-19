@@ -2,6 +2,7 @@ import lighthouse from 'lighthouse';
 import fs from 'fs';
 import { ChromeFactory } from './chrome.launcher';
 import { Logger } from '../utils/logger';
+import { lighthouseOptions } from '../config/lighthouse.config';
 
 const logger = new Logger();
 
@@ -15,15 +16,15 @@ export class LighthouseRunner {
     const result = await lighthouse(url, {
       port: chrome.port,
       output: 'html',
-      onlyCategories: ['performance', 'accessibility', 'best-practices'],
-      configPath: '/lighthouserc.json',
+      onlyCategories: lighthouseOptions.categories,
+      configPath: lighthouseOptions.paths.configPath,
       formFactor: 'desktop',
       screenEmulation: {
-        mobile: false,
-        width: 1920,
-        height: 1080,
-        deviceScaleFactor: 1,
-        disabled: false,
+        mobile: lighthouseOptions.screenEmulation.mobile,
+        width: lighthouseOptions.screenEmulation.width,
+        height: lighthouseOptions.screenEmulation.height,
+        deviceScaleFactor: lighthouseOptions.screenEmulation.deviceScaleFactor,
+        disabled: lighthouseOptions.screenEmulation.disabled,
       },
       throttlingMethod: 'provided'
     });
