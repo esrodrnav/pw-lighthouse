@@ -1,0 +1,30 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 1,
+      "settings": {
+        "disableStorageReset": true,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices"
+        ],
+        "throttlingMethod": "provided",
+        "chromeFlags": [
+          "--no-sandbox",
+          "--disable-gpu"
+        ]
+      }
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.80 }]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "reports/lighthouse"
+    }
+  }
+}

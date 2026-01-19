@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# env files
+.env
+
+# tests outputs
+reports/
+
+# Temporary Lighthouse CI config
+.lighthouserc.temp.cjs
+
+# Lighhouseci report temp files
+.lighthouseci/
+
+.user_data/
