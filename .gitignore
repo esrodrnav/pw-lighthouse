@@ -15,5 +15,8 @@ reports/
 
 # Lighhouseci report temp files
 .lighthouseci/
-
+.DS_Store
 .user_data/
+
+# Browser files
+storageState.json
