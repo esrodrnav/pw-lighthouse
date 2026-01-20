@@ -1,14 +1,13 @@
 import chromeLauncher from 'chrome-launcher';
 
-export class ChromeFactory {
+export class ChromeLaunch {
   static async launch() {
-    return chromeLauncher.launch({ port: 9222, userDataDir: '.user_data',
+    return chromeLauncher.launch({ port: 9222,
       chromeFlags: [
-          '--no-sandbox',
-        '--disable-gpu',
+        '--no-sandbox',
         '--disable-dev-shm-usage',
-        '--disable-software-rasterizer',
-        '--mute-audio' ]
+        '--disable-gpu'
+      ]
     });
   }
 }
