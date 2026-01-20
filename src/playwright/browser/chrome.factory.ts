@@ -9,7 +9,8 @@ export class ChromeFactory {
   async createContext(): Promise<BrowserContext> {
     this.context = await chromium.launchPersistentContext(this.userDataDir, {
       headless: true,
-      args: ['--no-sandbox']
+      args: ['--remote-debugging-port=9222', '--disable-setuid-sandbox', '--no-sandbox'],
+      ignoreDefaultArgs: ['--incognito']
     });
     
     return this.context;
