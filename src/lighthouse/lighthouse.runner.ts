@@ -1,6 +1,6 @@
 import lighthouse from 'lighthouse';
 import fs from 'fs';
-import { ChromeFactory } from './chrome.launcher';
+import { ChromeLaunch } from '../lighthouse/chrome.launcher.js';
 import { Logger } from '../utils/logger';
 import { lighthouseOptions } from '../config/lighthouse.config';
 
@@ -8,7 +8,7 @@ const logger = new Logger();
 
 export class LighthouseRunner {
   static async run(url: string, name: string) {
-    const chrome = await ChromeFactory.launch();
+    const chrome = await ChromeLaunch.launch();
     const timestamp = new Date().toISOString();
 
     logger.info(`Running Lighthouse for ${url}`);
