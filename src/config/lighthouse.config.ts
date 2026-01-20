@@ -19,7 +19,7 @@ export const lighthouseOptions = {
   },
 
   paths: {
-    configPath: appConfig.lighthousercPath,
-    reportsDir: appConfig.reportDir
+    configPath: '/lighthouserc.json',
+    reportsDir: path.resolve(process.cwd(), 'reports/lighthouse')
   }
 };
