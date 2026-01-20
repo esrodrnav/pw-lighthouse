@@ -21,10 +21,6 @@
       "assertions": {
         "categories:performance": ["error", { "minScore": 0.80 }]
       }
-    },
-    "upload": {
-      "target": "filesystem",
-      "outputDir": "reports/lighthouse"
     }
   }
 }
